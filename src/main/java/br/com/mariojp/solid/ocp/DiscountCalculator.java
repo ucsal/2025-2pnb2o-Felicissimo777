@@ -1,11 +1,12 @@
 package br.com.mariojp.solid.ocp;
 
 public class DiscountCalculator {
-    public double apply(double amount, CustomerType type){
-        switch (type){
-            case REGULAR: return amount * 0.95;
-            case PREMIUM: return amount * 0.90;
-            default: return amount;
-        }
-    }
+   private politica politica;
+
+   public DiscountCalculator(politica politica){
+    this.politica = politica;
+   }
+   public double apply (double amount, CustomerType regular) {
+    return politica.apply(amount);
+   }
 }
